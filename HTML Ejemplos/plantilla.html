@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo inicial para trabajar con flex</title>
+    <style>
+
+        main {
+            margin: 0 auto;
+            border: 2px solid;
+            width: 800px;
+            height: 800px;
+            background-color: lightgrey;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /* align-items: flex-start; */
+            /* flex-wrap: wrap; */
+            /* align-content: space-evenly; */
+            row-gap: 30px;
+
+
+        }
+
+        .primer-contenedor {
+            width: 290px;
+            height: 197px;
+            border: 2px solid;
+        }
+
+        #contenedor1 {
+            border: 2px solid red;
+            order:4;
+            flex-grow: 1;
+            flex-shrink: 35;
+            flex-basis: auto;
+            align-self: flex-end;
+        }
+        
+        #contenedor2{
+            border: 2px solid green;
+            order:2;
+            flex-grow: 1;
+            flex-shrink: 3;
+            align-self: flex-end;
+        } 
+        
+        #contenedor3 { 
+            border: 2px solid blue; 
+            order:3;
+            flex-grow: 1;
+            flex-shrink: 190;
+            align-self: flex-start;
+        }
+        
+        #contenedor4 { 
+            order:1;
+            border: 2px solid rgb(204, 22, 189); 
+            flex-grow: 1;
+            flex-shrink: 300;
+            align-self: flex-start;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Ejemplo flex -->
+    <main>
+        <div id="contenedor1" class="primer-contenedor">Contenedor 1</div>
+        <div id="contenedor2" class="primer-contenedor">Contenedor 2</div>
+        <div id="contenedor3" class="primer-contenedor">Contenedor 3</div>
+        <div id="contenedor4" class="primer-contenedor">Contenedor 4</div>
+
+        <!--
+            <div id="contenedor4" class="primer-contenedor">Contenedor 4</div>
+            <div id="contenedor5" class="primer-contenedor">Contenedor 5</div>
+            <div id="contenedor6" class="primer-contenedor">Contenedor 6</div>
+        -->
+    </main>
+</body>
+</html>

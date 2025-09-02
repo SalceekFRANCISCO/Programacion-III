@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Mi primer formulario</title>
+</head>
+<body>
+  <h1>Formulario</h1>
+  <form action="otroHTML.html" method="post">
+    <p><label for="Nombre"> Nombre: <input type="text" id="Nombre"></label></p>
+    <p><label for="Apellido"> Apellido: <input type="text" id="Apellido"></label></p>
+    <p><label for="Edad"> Edad: <input type="text" id="Edad"></label></p>
+    <p><label for="Observacion"> Observación: <textarea id="observacion"></textarea></label></p>
+    
+     <p><label> Estatura:
+       <select id="estatura">
+         <option value="< 1,50"> < 1,50 mts </option>
+         <option value="< 1,50 a 1,60">  1,51 a 1,60 mts </option>
+         <option value="< 1,61 a 1,70" >  1,61 a 1,70 mts</option>
+         <option value="< 1,71 a 1,80" selected>  1,71 a 1,80 mts</option>
+          <option value="> 1,80" disabled> > 1,80 mts</option>
+          </select>
+       </label></p>   
+       
+       <p><b>Color de ojos:</b></p>
+       <input type="checkbox" value="marron">
+      <label>Marrón</label> <br>
+       <input type="checkbox" value="celeste">
+      <label>Celeste</label> <br>
+       <input type="checkbox" value="verde">
+      <label>Verde</label> <br>
+       <input type="checkbox" value="otro">
+      <label>Otro</label> <br>
+       <br>
+       
+    
+    <button type="submit">Enviar</button>    
+    
+  </form>
+</body>
+</html>
