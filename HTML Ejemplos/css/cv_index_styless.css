@@ -3,9 +3,9 @@
     justify-content: center;
 }
 
-main * {
+/* main * {
     border: 2px solid black;
-}
+} */
 
 main{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
@@ -15,8 +15,6 @@ main{
     gap: 10px;
     border: 1px solid hsl(209, 98%, 60%);
 }
-
-
 
 .aside-main{
     background-color: #012e58;
@@ -31,6 +29,8 @@ main{
 .card-aside{
     background: transparent;
     padding: 10px;
+    margin-top: -27px;
+    margin-bottom: 33px;
 }
 
 .titulo-aside{
@@ -58,6 +58,7 @@ main{
 
 .lista{
     margin: -10px 0;
+    padding-left: 18px;
 }
 
 .lista-nodecoration{
@@ -103,3 +104,43 @@ li a:hover{
     font-size: 13px;
     letter-spacing: .8px;
 }
+
+.titulo{
+    display: inline-block;
+    font-weight: 500;
+    margin-bottom: -5px;
+    padding-bottom: 5px;
+    color: #012e58;
+    border-bottom: 2px solid #012e58;
+}
+
+/* .rol-xp,.empresa-xp,.fecha-xp{
+    border: 2px solid black;
+} */
+
+.rol-empresa-xp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rol-xp{
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+.empresa-xp{
+    margin-top: -1px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.fecha-xp{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-bottom: -15px;
+    color: #012e58;
+    font-weight: bold;
+}
+
