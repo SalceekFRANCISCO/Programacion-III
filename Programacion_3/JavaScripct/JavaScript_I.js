@@ -4,7 +4,7 @@
 multiples
 lineas
 */
-
+ab
 /* La consola de JS es una herramienta de depuracion en el navegador web.
 Permite ejecutar comandos en JavaScript, ver mensajes de registro y errores,  y hacer pruebas interactivas de codigo
 
