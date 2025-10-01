@@ -1,40 +1,70 @@
-//Array de productos
+//array de productos
 const frutas = [
-    {id: 1, nombre: "manzana", precio: 10, ruta_img: '../img/manzana.jpg'},
-    {id: 2, nombre: "uva", precio: 30, ruta_img: '../img/uva.jpg'},
-    {id: 3, nombre: "melon", precio: 50, ruta_img: '../img/melon.jpg'},
-    {id: 4, nombre: "mango", precio: 70, ruta_img: '../img/fruta'},
-    {id: 5, nombre: "frutilla", precio: 20, ruta_img: '../img/fruta'},
-    {id: 6, nombre: "ananá", precio: 15, ruta_img: '../img/anana.png'},
+  { id: 1, nombre: "manzana", precio: 10, ruta_img: "img/manzana.jpg" },
+  { id: 2, nombre: "uva", precio: 30, ruta_img: "img/uvas.jpg" },
+  { id: 3, nombre: "melón", precio: 50, ruta_img: "img/melon.jpg" },
+  { id: 4, nombre: "mango", precio: 70, ruta_img: "img/mango.jpg" },
+  { id: 5, nombre: "frutilla", precio: 20, ruta_img: "img/frutilla.jpg" },
+  { id: 6, nombre: "ananá", precio: 15, ruta_img: "img/anana.png" },
 ];
 
 //variables
-let contenedorFrutas = document.querySelector('#contenerdorfrutas')
+let contenedorFrutas = document.querySelector("#contenedorFrutas");
 
 let barraBusqueda = document.querySelector("#barraBusqueda");
 
-function mostrarProductos(){
-    let cartaProducto = ""
-    frutas.forEach(fruta => {
-      cartaProducto += `
+//array de carrito
+let carrito = [];
+
+function mostrarProductos(array) {
+  let cartaProducto = "";
+  array.forEach((fruta) => {
+    cartaProducto += `
             <div class="card-producto">
-                <img src="${fruta.ruta_img}" alt="${fruta.nombre}">
+                <img src="${fruta.ruta_img}" alt="${fruta.nombre}" />
                 <h3>${fruta.nombre}</h3>
-                <p>$${fruta.precio}</p>
-                <button>Agregar al carrito</button>
+                <p>$ ${fruta.precio}</p>
+                <button onclick="agregarACarrito(${fruta.id})">Agregar al carrito</button>
             </div> `;
-    });
-    contenedorFrutas.innerHTML = cartaProducto;
+  });
+  contenedorFrutas.innerHTML = cartaProducto;
 }
 
-barraBusqueda.addEventListener("keyup", function(){
+barraBusqueda.addEventListener("keyup", () => {
+    filtrarProductos();
+    alerta();
+});
+
+function alerta(){
+    console.log("holis");
+}
+
+function filtrarProductos(){
     let valorBusqueda = barraBusqueda.value;
 
     console.log(valorBusqueda);
 
     let productosFiltrados = frutas.filter(f => f.nombre.includes(valorBusqueda));
-    
-    console.table(productosFiltrados)
-})
 
-mostrarProductos();
+    mostrarProductos(productosFiltrados);
+}
+
+function agregarACarrito(id){
+
+    let frutaSeleccionada = frutas.find(f => f.id === id);
+
+    carrito.push(frutaSeleccionada);
+
+    console.log(carrito);
+
+    console.log(`id del producto: ${id}`);
+}
+
+function init(){
+    
+    mostrarProductos(frutas);
+    alerta();
+
+}
+
+init();
