@@ -11,6 +11,8 @@ const frutas = [
 //variables
 let contenedorFrutas = document.querySelector("#contenedorFrutas");
 
+let contenedorCarrito = document.querySelector("#contenedorCarrito");
+
 let barraBusqueda = document.querySelector("#barraBusqueda");
 
 //array de carrito
@@ -58,6 +60,18 @@ function agregarACarrito(id){
     console.log(carrito);
 
     console.log(`id del producto: ${id}`);
+
+    mostrarCarrito();
+}
+
+function mostrarCarrito(){
+// {/* <li class="bloque-item">
+// <p class="nombre-item">nombreProducto - precioProducto</p>
+// <button class="boton-eliminar">Eliminar</button>
+// </li> */}
+    let cartaCarrito = '';
+
+    console.table(carrito);
 }
 
 function init(){
