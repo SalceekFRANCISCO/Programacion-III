@@ -1,13 +1,13 @@
-main {
+main{
     display: flex;
 }
 
-.card-producto img {
+.card-producto img{
     width: 50px;
     height: 50px;
 }
 
-.card-producto {
+.card-producto{
     width: 200px;
     height: 200px;
     padding: 5px;
@@ -17,7 +17,7 @@ main {
     align-items: center;
 }
 
-#contenedorFrutas {
+#contenedorFrutas{
     height: 600px;
     border: 2px solid;
     display: flex;
@@ -25,22 +25,17 @@ main {
     justify-content: space-evenly;
 }
 
-#contendorFrutas {
+#contenedorCarrito{
     width: 50%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#contendorCarrito li {
+#contenedorCarrito li{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 300px;
-} 
-
-#contendorCarrito li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 300px;
-} 
-
+}

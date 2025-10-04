@@ -15,15 +15,15 @@ let contenedorCarrito = document.querySelector("#contenedorCarrito");
 
 let barraBusqueda = document.querySelector("#barraBusqueda");
 
-localStorage.clear();
+//localStorage.clear();
+
 //array de carrito
 if (localStorage.getItem("carrito")){
     console.log("existe carrito");
-}
-else{
+}else{
     console.log("no existe carrito");
-    
 }
+
 let carrito = [];
 
 function mostrarProductos(array) {
@@ -68,48 +68,49 @@ function agregarACarrito(id){
     console.log(carrito);
 
     console.log(`id del producto: ${id}`);
-    
-    // localStorage.setItem("carrito",JSON.stringify(carrito));
+
+    //localStorage.setItem("carrito", JSON.stringify(carrito));
 
     mostrarCarrito();
 }
 
 function mostrarCarrito(){
 
-    let cartaCarrito = '<ul>';
-    carrito.forEach((elemento,indice) => {
-        cartaCarrito += 
+    let cartaCarrito = "<ul>";
+    carrito.forEach((elemento, indice) => {
+        cartaCarrito +=
         `<li class="bloque-item">
-            <p class="nombre-item">${elemento.nombre} - ${elemento.precio}</p>
+            <p class="nombre-item">${elemento.nombre} - $ ${elemento.precio}</p>
             <p class="nombre-item">${indice}</p>
             <button class="boton-eliminar" onclick="eliminarElemento(${indice})">Eliminar</button>
         </li>`
+        
     });
 
-    cartaCarrito += "</ul> <button onclick='vaciarCarrito()'> Vaciar carrito </button>";
+    cartaCarrito += "</ul><button onclick='vaciarCarrito()'> Vaciar carrito </button>";
+
+    contenedorCarrito.innerHTML = cartaCarrito;
 
     console.log(cartaCarrito);
 
     console.table(carrito);
-
-    contenedorCarrito.innerHTML = cartaCarrito;
-    
 }
 
 function eliminarElemento(indice){
-    console.log(`test de eliminado de indice ${indice}`)
+    console.log(`test de eliminado de indice ${indice}`);
 
-    carrito.splice(indice,1);
-                
-    console.table(carrito); 
+    carrito.splice(indice, 1);
+
+    console.table(carrito);
 
     mostrarCarrito();
-
+    
 }
 
 function vaciarCarrito(){
     carrito = [];
-    contenedorCarrito.innerHTML = cartaCarrito;
+
+    contenedorCarrito.innerHTML = "";
 }
 
 function init(){
@@ -121,21 +122,22 @@ function init(){
 
 init();
 
-
-
 /*
-LocalStorage: es una API que mpermite almcacernar datos de manera persistente en el navegador 
-tiene un tramano maximo de 5 a 10 mp por dominio (url)
+localStorage : es una API que permite almacenar datos de manera persistente en el navegador
+tiene un tamaño máximo de 5 a 10mb por dominio (url)
 
-Metodos de LocalStorage:
-1. guardar datos localStorage.setItem("value", "key")
-2. leer datos localStorage.getItem("key")
-3. eliminar un dato localStorage.removeItem("key")
-4. eliminar todos los datos  localStorage.clear()
+Métodos de localStorage :
+1. Guardar datos: localStorage.setItem(key, value)
+2. Leer datos: localStorage.getItem(key)
+3. Eliminar un dato: localStorage.removeItem(key)
+4. Eliminar todos los datos: localStorage.clear()
 
+JSON o JavaScript Object Notation
+
+Es un formato de texto plano donde transformamos nuestros objetos JS 
+en un string y es el lenguaje standard para enviar y recibir datos por internet
 
 */
-
 
 localStorage.setItem("nombre","Gricel");
 
@@ -149,15 +151,17 @@ localStorage.removeItem("tema");
 
 localStorage.clear();
 
-console.log(carrito);
+console.log(frutas);
 
-let jsonFruta = JSON.stringify(frutas);
+let jsonFrutas = JSON.stringify(frutas);
 
-console.log("array de objeto convertidos a texto plano");
-console.log(jsonFruta);
+console.log("array de objetos convertido a texto plano");
+console.log(jsonFrutas);
 
 let conversionFrutas = JSON.parse(jsonFrutas);
 
 console.log("texto plano convertido a objeto js");
 console.log(conversionFrutas);
+
+
 
