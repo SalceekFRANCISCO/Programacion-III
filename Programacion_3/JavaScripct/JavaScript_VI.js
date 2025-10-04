@@ -42,7 +42,7 @@ Diagrama de arbol del DOM__________
 
 Como funciona la manipulacion del DOM?
 
-JavaScriptt puede acceder y modificar cualquier elemento del DOM, utilizando el objeto global document.
+JavaScript puede acceder y modificar cualquier elemento del DOM, utilizando el objeto global document.
 
 JavaScript puede
     - Modificar el contenido (textos, atributos, clases)

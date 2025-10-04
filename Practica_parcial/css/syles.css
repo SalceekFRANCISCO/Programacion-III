@@ -1,0 +1,37 @@
+body{
+    margin: 0px;
+}
+main{
+    border: 2px solid black;
+}
+
+.boton1, .boton2, .boton3, .botonera{
+    border: 2px solid black;
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.botonera{
+    display: flex;
+    flex-direction: column;
+}
+
+.boton1:hover{
+    cursor: pointer;
+    color: red;
+
+}
+
+.boton2:hover{
+    cursor: pointer;
+    color: rgb(22, 70, 116);
+    
+}
+.boton3:hover{
+    cursor: pointer;
+    color: rgb(80, 57, 61);
+    
+}

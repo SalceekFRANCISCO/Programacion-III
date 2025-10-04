@@ -15,7 +15,15 @@ let contenedorCarrito = document.querySelector("#contenedorCarrito");
 
 let barraBusqueda = document.querySelector("#barraBusqueda");
 
+localStorage.clear();
 //array de carrito
+if (localStorage.getItem("carrito")){
+    console.log("existe carrito");
+}
+else{
+    console.log("no existe carrito");
+    
+}
 let carrito = [];
 
 function mostrarProductos(array) {
@@ -60,18 +68,48 @@ function agregarACarrito(id){
     console.log(carrito);
 
     console.log(`id del producto: ${id}`);
+    
+    // localStorage.setItem("carrito",JSON.stringify(carrito));
 
     mostrarCarrito();
 }
 
 function mostrarCarrito(){
-// {/* <li class="bloque-item">
-// <p class="nombre-item">nombreProducto - precioProducto</p>
-// <button class="boton-eliminar">Eliminar</button>
-// </li> */}
-    let cartaCarrito = '';
+
+    let cartaCarrito = '<ul>';
+    carrito.forEach((elemento,indice) => {
+        cartaCarrito += 
+        `<li class="bloque-item">
+            <p class="nombre-item">${elemento.nombre} - ${elemento.precio}</p>
+            <p class="nombre-item">${indice}</p>
+            <button class="boton-eliminar" onclick="eliminarElemento(${indice})">Eliminar</button>
+        </li>`
+    });
+
+    cartaCarrito += "</ul> <button onclick='vaciarCarrito()'> Vaciar carrito </button>";
+
+    console.log(cartaCarrito);
 
     console.table(carrito);
+
+    contenedorCarrito.innerHTML = cartaCarrito;
+    
+}
+
+function eliminarElemento(indice){
+    console.log(`test de eliminado de indice ${indice}`)
+
+    carrito.splice(indice,1);
+                
+    console.table(carrito); 
+
+    mostrarCarrito();
+
+}
+
+function vaciarCarrito(){
+    carrito = [];
+    contenedorCarrito.innerHTML = cartaCarrito;
 }
 
 function init(){
@@ -82,3 +120,44 @@ function init(){
 }
 
 init();
+
+
+
+/*
+LocalStorage: es una API que mpermite almcacernar datos de manera persistente en el navegador 
+tiene un tramano maximo de 5 a 10 mp por dominio (url)
+
+Metodos de LocalStorage:
+1. guardar datos localStorage.setItem("value", "key")
+2. leer datos localStorage.getItem("key")
+3. eliminar un dato localStorage.removeItem("key")
+4. eliminar todos los datos  localStorage.clear()
+
+
+*/
+
+
+localStorage.setItem("nombre","Gricel");
+
+let localNombre = localStorage.getItem("nombre");
+
+console.log(localNombre);
+
+localStorage.setItem("tema","oscuro");
+
+localStorage.removeItem("tema");
+
+localStorage.clear();
+
+console.log(carrito);
+
+let jsonFruta = JSON.stringify(frutas);
+
+console.log("array de objeto convertidos a texto plano");
+console.log(jsonFruta);
+
+let conversionFrutas = JSON.parse(jsonFrutas);
+
+console.log("texto plano convertido a objeto js");
+console.log(conversionFrutas);
+
