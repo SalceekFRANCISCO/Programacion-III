@@ -1,16 +1,31 @@
-body{
-    margin: 0px;
-}
 main{
     border: 2px solid black;
+} 
+
+#seccionlibros ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0px;
+}  
+
+#precio{
+    text-align: center;
 }
 
-.boton1, .boton2, .boton3, .botonera{
+.lista ul{
     border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
+
 .botones{
     display: flex;
-    flex-direction: column;
+    /* height: 50px; */
+    flex-direction: row;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -36,12 +51,15 @@ main{
     
 }
 
-.prueba{
+#botonera2{
     width: 200px;
     height: 200px;
     padding: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    text-align: center;
+    /* flex-wrap: wrap; */
 }

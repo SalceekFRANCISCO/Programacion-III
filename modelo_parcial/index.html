@@ -1,0 +1,39 @@
+<!-- Enunciado:
+Una biblioteca digital necesita un sistema web sencillo para mostrar y gestionar sus libros.
+Sigue los siguientes pasos:
+
+Crea un array de objetos llamado libros. Cada objeto debe representar un libro con: id, titulo, autor, precio y ruta_img.
+
+Muestra los libros en pantalla en formato de tarjetas (imagen, título, autor y precio).
+
+Agrega un input de búsqueda que permita filtrar los libros por título o autor.
+
+Añade un botón en cada tarjeta que permita agregar un libro a una lista de “favoritos”.
+
+Cada vez que se agregue un libro a favoritos, muéstralo en consola y asegúrate de que no se repita.
+Implementa una función init() que inicialice la aplicación mostrando todos los libros.
+
+ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <link rel="stylesheet" href="css/syles.css"></head>
+        <script src="js/main.js" defer></script>
+        <title> Biblioteca </title>
+    </head>
+    <body>
+        <!-- Estructuras semanticas-->
+        <header>
+            <nav>
+                <label for="barraBusqueda"> Buscar </label>
+                <input id="barraBusqueda"type="text">
+            </nav>
+        </header>
+        <main>
+            <section id="seccionlibros"></section>
+        </main>
+    </body>
+</html>

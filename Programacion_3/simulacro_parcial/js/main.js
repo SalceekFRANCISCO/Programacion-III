@@ -1,3 +1,18 @@
+// Enunciado:
+// Una biblioteca digital necesita un sistema web sencillo para mostrar y gestionar sus libros.
+// Sigue los siguientes pasos:
+
+// Crea un array de objetos llamado libros. Cada objeto debe representar un libro con: id, titulo, autor, precio y ruta_img.
+
+// Muestra los libros en pantalla en formato de tarjetas (imagen, título, autor y precio).
+
+// Agrega un input de búsqueda que permita filtrar los libros por título o autor.
+
+// Añade un botón en cada tarjeta que permita agregar un libro a una lista de “favoritos”.
+
+// Cada vez que se agregue un libro a favoritos, muéstralo en consola y asegúrate de que no se repita.
+// Implementa una función init() que inicialice la aplicación mostrando todos los libros.
+
 //array de productos
 const frutas = [
   { id: 1, nombre: "manzana", precio: 10, ruta_img: "img/manzana.jpg" },
