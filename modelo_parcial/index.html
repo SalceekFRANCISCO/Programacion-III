@@ -27,16 +27,18 @@ Implementa una función init() que inicialice la aplicación mostrando todos los
     <body>
         <!-- Estructuras semanticas-->
         <header>
-            <nav>
+            <nav class="navegador">
                 <label for="barraBusqueda"> Buscar </label>
                 <input id="barraBusqueda"type="text">
+
+                <div class="carrito">
+                    <img class="carritoimg" src="img\carrito.png" alt="carrito">
+                </div>
             </nav>
-            <div class="carrito">
-                <img class="carritoimg" src="img\carrito.png" alt="carrito">
-            </div>
         </header>
         <main>
             <section id="seccionlibros"></section>
+            <aside id="asidecarrito"></aside>
         </main>
     </body>
 </html>

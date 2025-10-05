@@ -19,6 +19,8 @@ let contenedorLibros = document.querySelector("#seccionlibros");
 
 let botonBuscar = document.querySelector("#barraBusqueda");
 
+let carrito = document.querySelector("#asidecarrito");
+
 //array de botones
 const libros = [
     {id: 1, titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', precio: 8500, ruta_img: 'img/cien_anos_de_soledad.jpg'},
@@ -68,6 +70,24 @@ const libros = [
 let favoritos = [];
 let listadoLibros= "";
 
+function mostrarCarrito(){
+    // carrito.addEventListener("click", function(){
+       let carritoCargado = "<ul class=listaCarrito> ";
+       favoritos.forEach(libfav => {
+            carritoCargado +=
+            `<li>
+                <p>${libfav.titulo}-- $${libfav.precio}</p>
+            </li>`
+       });
+
+       carritoCargado += "</ul>";
+       carrito.innerHTML = carritoCargado;
+       console.log("me ejecute");
+
+
+    };
+
+
 function mostrarListaLibros(array){
     let listadoLibros= "<ul class=lista> ";
     array.forEach(libro => {
@@ -82,6 +102,7 @@ function mostrarListaLibros(array){
     });
     listadoLibros += "</ul>";
     contenedorLibros.innerHTML = listadoLibros;
+    
 }
 
 function buscar(){
@@ -115,11 +136,12 @@ function validarExistencia(libro){
 function agregarLibro(id){
     let libro = libros.find(libro => libro.id == id);
     validarExistencia(libro);
+    mostrarCarrito();
 }
 
 function init(){
     mostrarListaLibros(libros); 
-    buscar()
+    buscar();
 }
 
 init();

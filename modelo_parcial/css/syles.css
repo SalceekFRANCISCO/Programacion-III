@@ -29,17 +29,28 @@ main{
     width: 64px;
 }
 
+.navegador{
+    border: 2px solid;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px
+
+}
+
 .carrito{
     display: flex;
-    flex-direction: row-reverse;
+    align-self: flex-end;
+    margin-left: 400px;
+}
+
+.carritoimg{
     height: 49px;
     width: 62px;
 }
 
-.carritoimg{
-    display: flex;
-    flex-direction: row;
-
+.carritoimg:hover{
+    background-color: rgb(89, 155, 226);
 }
 
 .autor{
