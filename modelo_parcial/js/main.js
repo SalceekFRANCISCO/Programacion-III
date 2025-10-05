@@ -68,7 +68,6 @@ const libros = [
 let favoritos = [];
 let listadoLibros= "";
 
-// <button> hace click</button>
 function mostrarListaLibros(array){
     let listadoLibros= "<ul class=lista> ";
     array.forEach(libro => {
@@ -78,14 +77,12 @@ function mostrarListaLibros(array){
             <h2 class=autor>${libro.titulo}</h2>
             <h5 class=autor> ${libro.autor}</h5>
             <p>$${libro.precio}</p>
-            <button class=botonAgregar onclick=agregarLibro(${libro})>Agregar a favoritos</button>
-
+            <button class="botonAgregar" onclick="agregarLibro(${libro.id})">Agregar a favoritos</button>
         </li>`;
     });
     listadoLibros += "</ul>";
     contenedorLibros.innerHTML = listadoLibros;
 }
-
 
 function buscar(){
     botonBuscar.addEventListener("keydown",function(){
@@ -102,26 +99,23 @@ function buscar(){
 }
 
 function validarExistencia(libro){
-    favoritos.forEach(lib => {
-        if (lib.id == libro.id){
-            console.log("El libro ya existe");
-        }
-        else{
-            favoritos.push(libro);
-        }   
-    });
-}
 
-function agregarLibro(libro){
+    let existe = favoritos.some(lib => lib.id == libro.id);
 
-    if (favoritos.length != 0){
-        favoritos.push(libro);
+    if(existe){
+        alert("el libro ya se encuentra en la lista");
     }
     else{
-        validarExistencia(libro);
+        favoritos.push(libro);
+        alert("libro agregado correctamente");
+        console.log(libro);
     }
 }
 
+function agregarLibro(id){
+    let libro = libros.find(libro => libro.id == id);
+    validarExistencia(libro);
+}
 
 function init(){
     mostrarListaLibros(libros); 

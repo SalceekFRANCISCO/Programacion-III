@@ -29,14 +29,29 @@ main{
     width: 64px;
 }
 
+.carrito{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 49px;
+    width: 62px;
+}
+
+.carritoimg{
+    display: flex;
+    flex-direction: row;
+
+}
+
 .autor{
     margin-bottom: 6px;
     margin-top: 13px;
 }
 
-.botonAgregar{
+.botonAgregar:hover{
     border: 3px solid;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    cursor: pointer;
+    color: red;
 }
 
 /* .boton:hover{
