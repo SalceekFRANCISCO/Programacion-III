@@ -15,64 +15,117 @@
 // Implementa una función init() que inicialice la aplicación mostrando todos los libros.
 
 // variables
-let contenedor_libros = document.querySelector("#seccionlibros");
+let contenedorLibros = document.querySelector("#seccionlibros");
+
+let botonBuscar = document.querySelector("#barraBusqueda");
 
 //array de botones
 const libros = [
     {id: 1, titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', precio: 8500, ruta_img: 'img/cien_anos_de_soledad.jpg'},
-    {id: 2, titulo: 'El principito', autor: 'Antoine de Saint-Exupéry', precio: 5200, ruta_img: 'img/el_principito.jpg'},
-    {id: 3, titulo: '1984', autor: 'George Orwell', precio: 6900, ruta_img: 'img/1984.jpg'},
-    {id: 4, titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', precio: 9700, ruta_img: 'img/don_quijote.jpg'},
-    {id: 5, titulo: 'Fahrenheit 451', autor: 'Ray Bradbury', precio: 6400, ruta_img: 'img/fahrenheit_451.jpg'},
-    {id: 6, titulo: 'Orgullo y prejuicio', autor: 'Jane Austen', precio: 7100, ruta_img: 'img/orgullo_y_prejuicio.jpg'},
-    {id: 7, titulo: 'Crimen y castigo', autor: 'Fiódor Dostoyevski', precio: 9300, ruta_img: 'img/crimen_y_castigo.jpg'},
-    {id: 8, titulo: 'El señor de los anillos', autor: 'J. R. R. Tolkien', precio: 11800, ruta_img: 'img/el_senor_de_los_anillos.jpg'},
-    {id: 9, titulo: 'La sombra del viento', autor: 'Carlos Ruiz Zafón', precio: 7800, ruta_img: 'img/la_sombra_del_viento.jpg'}
+    {id: 2, titulo: 'El principito', autor: 'Antoine de Saint-Exupéry', precio: 5200, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 3, titulo: '1984', autor: 'George Orwell', precio: 6900, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 4, titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', precio: 9700, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 5, titulo: 'Fahrenheit 451', autor: 'Ray Bradbury', precio: 6400, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 6, titulo: 'Orgullo y prejuicio', autor: 'Jane Austen', precio: 7100, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 7, titulo: 'Crimen y castigo', autor: 'Fiódor Dostoyevski', precio: 9300, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 8, titulo: 'El señor de los anillos', autor: 'J. R. R. Tolkien', precio: 11800, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 9, titulo: 'La sombra del viento', autor: 'Carlos Ruiz Zafón', precio: 7800, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 10, titulo: 'Matar a un ruiseñor', autor: 'Harper Lee', precio: 8600, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 11, titulo: 'Los miserables', autor: 'Victor Hugo', precio: 9900, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 12, titulo: 'El alquimista', autor: 'Paulo Coelho', precio: 6200, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 13, titulo: 'It', autor: 'Stephen King', precio: 10500, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 14, titulo: 'El nombre del viento', autor: 'Patrick Rothfuss', precio: 9400, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 15, titulo: 'Drácula', autor: 'Bram Stoker', precio: 8100, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 16, titulo: 'La metamorfosis', autor: 'Franz Kafka', precio: 5600, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 17, titulo: 'Los juegos del hambre', autor: 'Suzanne Collins', precio: 7200, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+    {id: 18, titulo: 'Harry Potter y la piedra filosofal', autor: 'J. K. Rowling', precio: 8900, ruta_img: 'img/cien_anos_de_soledad.jpg'}
 ];
 
+//#region libros con url corregida
+// const libros = [
+//     {id: 1, titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', precio: 8500, ruta_img: 'img/cien_anos_de_soledad.jpg'},
+//     {id: 2, titulo: 'El principito', autor: 'Antoine de Saint-Exupéry', precio: 5200, ruta_img: 'img/el_principito.jpg'},
+//     {id: 3, titulo: '1984', autor: 'George Orwell', precio: 6900, ruta_img: 'img/1984.jpg'},
+//     {id: 4, titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', precio: 9700, ruta_img: 'img/don_quijote.jpg'},
+//     {id: 5, titulo: 'Fahrenheit 451', autor: 'Ray Bradbury', precio: 6400, ruta_img: 'img/fahrenheit_451.jpg'},
+//     {id: 6, titulo: 'Orgullo y prejuicio', autor: 'Jane Austen', precio: 7100, ruta_img: 'img/orgullo_y_prejuicio.jpg'},
+//     {id: 7, titulo: 'Crimen y castigo', autor: 'Fiódor Dostoyevski', precio: 9300, ruta_img: 'img/crimen_y_castigo.jpg'},
+//     {id: 8, titulo: 'El señor de los anillos', autor: 'J. R. R. Tolkien', precio: 11800, ruta_img: 'img/el_senor_de_los_anillos.jpg'},
+//     {id: 9, titulo: 'La sombra del viento', autor: 'Carlos Ruiz Zafón', precio: 7800, ruta_img: 'img/la_sombra_del_viento.jpg'},
+//     {id: 10, titulo: 'Matar a un ruiseñor', autor: 'Harper Lee', precio: 8600, ruta_img: 'img/matar_a_un_ruisenor.jpg'},
+//     {id: 11, titulo: 'Los miserables', autor: 'Victor Hugo', precio: 9900, ruta_img: 'img/los_miserables.jpg'},
+//     {id: 12, titulo: 'El alquimista', autor: 'Paulo Coelho', precio: 6200, ruta_img: 'img/el_alquimista.jpg'},
+//     {id: 13, titulo: 'It', autor: 'Stephen King', precio: 10500, ruta_img: 'img/it.jpg'},
+//     {id: 14, titulo: 'El nombre del viento', autor: 'Patrick Rothfuss', precio: 9400, ruta_img: 'img/el_nombre_del_viento.jpg'},
+//     {id: 15, titulo: 'Drácula', autor: 'Bram Stoker', precio: 8100, ruta_img: 'img/dracula.jpg'},
+//     {id: 16, titulo: 'La metamorfosis', autor: 'Franz Kafka', precio: 5600, ruta_img: 'img/la_metamorfosis.jpg'},
+//     {id: 17, titulo: 'Los juegos del hambre', autor: 'Suzanne Collins', precio: 7200, ruta_img: 'img/los_juegos_del_hambre.jpg'},
+//     {id: 18, titulo: 'Harry Potter y la piedra filosofal', autor: 'J. K. Rowling', precio: 8900, ruta_img: 'img/harry_potter_piedra_filosofal.jpg'}
+// ];
+//#endregion
 
+
+let favoritos = [];
 let listadoLibros= "";
 
-// formato de tarjetas (imagen, título, autor y precio).
 // <button> hace click</button>
-function mostrarListaBotones(array){
+function mostrarListaLibros(array){
     let listadoLibros= "<ul class=lista> ";
     array.forEach(libro => {
         listadoLibros += 
-        `<li id=botonera2>
-            <img src=${libro.ruta_img} alt="${libro.titulo}">
-            <h2>${libro.titulo}</h2>
-            <h5>${libro.autor}</h5>
-            <p id=precio>$${libro.precio}</p>
+        `<li id=listaLibros>
+            <img class=imgLibro src=${libro.ruta_img} alt="${libro.titulo}">
+            <h2 class=autor>${libro.titulo}</h2>
+            <h5 class=autor> ${libro.autor}</h5>
+            <p>$${libro.precio}</p>
+            <button class=botonAgregar onclick=agregarLibro(${libro})>Agregar a favoritos</button>
+
         </li>`;
     });
     listadoLibros += "</ul>";
-    contenedor_libros.innerHTML = listadoLibros;
-    
+    contenedorLibros.innerHTML = listadoLibros;
 }
 
-function desaparecerListaBotones(){
-    contenedor_libros.innerHTML = "";
-    
+
+function buscar(){
+    botonBuscar.addEventListener("keydown",function(){
+        
+        let valorBusqueda = botonBuscar.value;
+
+        let librosFiltrados = libros.filter(lib => lib.titulo.includes(valorBusqueda));
+
+        console.log(librosFiltrados);
+
+        mostrarListaLibros(librosFiltrados);
+        
+    });
 }
 
-function clickearMostrar(){
-    boton1.addEventListener("click", mostrarListaBotones(libros))
+function validarExistencia(libro){
+    favoritos.forEach(lib => {
+        if (lib.id == libro.id){
+            console.log("El libro ya existe");
+        }
+        else{
+            favoritos.push(libro);
+        }   
+    });
 }
 
-function desaparecerMostrar(){
-    boton2.addEventListener("click", desaparecerListaBotones)
+function agregarLibro(libro){
+
+    if (favoritos.length != 0){
+        favoritos.push(libro);
+    }
+    else{
+        validarExistencia(libro);
+    }
 }
 
-function alerta(){
-    console.log("holis");
-}
 
 function init(){
-    mostrarListaBotones(libros); 
-    // alerta();
-    // clickearMostrar();
-    // desaparecerMostrar();
+    mostrarListaLibros(libros); 
+    buscar()
 }
 
 init();
