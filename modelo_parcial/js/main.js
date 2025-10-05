@@ -72,21 +72,31 @@ let listadoLibros= "";
 
 function mostrarCarrito(){
     // carrito.addEventListener("click", function(){
-       let carritoCargado = "<ul class=listaCarrito> ";
-       favoritos.forEach(libfav => {
+    let total = calcularTotal(favoritos);
+    let carritoCargado = "<ul class=listaCarrito> ";
+    favoritos.forEach(libfav => {
             carritoCargado +=
             `<li>
                 <p>${libfav.titulo}-- $${libfav.precio}</p>
             </li>`
-       });
+    });
 
-       carritoCargado += "</ul>";
-       carrito.innerHTML = carritoCargado;
-       console.log("me ejecute");
-
+    carritoCargado += `<h3>Total de carrito: $ ${total}</p> </h3>`;
+    carrito.innerHTML = carritoCargado;
+    console.log("me ejecute");
+    
 
     };
 
+
+function calcularTotal(array) {
+    let total = 0;
+
+    array.forEach(producto => {
+        total += producto.precio;
+    })
+    return total;
+}
 
 function mostrarListaLibros(array){
     let listadoLibros= "<ul class=lista> ";
@@ -111,7 +121,6 @@ function buscar(){
         let valorBusqueda = botonBuscar.value;
 
         let librosFiltrados = libros.filter(lib => lib.titulo.includes(valorBusqueda));
-
         console.log(librosFiltrados);
 
         mostrarListaLibros(librosFiltrados);

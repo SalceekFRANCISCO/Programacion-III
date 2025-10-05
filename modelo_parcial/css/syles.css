@@ -63,9 +63,37 @@ main{
     /* margin-bottom: 20px; */
     cursor: pointer;
     color: red;
+    border-radius: 5px;
 }
 
 /* .boton:hover{
     cursor: pointer;
     color: red;
 } */
+
+.principal {
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid;
+}
+
+.principal li {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    width: 300px;
+}
+
+.principal h3 {
+    border: 2px solid;
+    margin-top: 0px;
+    text-align: center;
+}
+
+/**
+.separador {
+    border: 20px solid rgb(10, 61, 3);
+    height: 100vh;
+    overflow: auto;
+    }
+*/
