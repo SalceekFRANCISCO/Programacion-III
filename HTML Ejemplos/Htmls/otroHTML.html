@@ -7,14 +7,21 @@
     <style>
         main {
             margin: 0 auto;
-            border: 2px solid;
+            border: 4px solid;
             width: 800px;
             height: 800px;
             background-color: lightgrey;
             display: flex;
-            flex-direction: column; 
+            flex-direction: row; 
             justify-content: center;
             align-items: center;
+            /* flex-wrap: wrap; */
+            gap:10px;
+            row-gap: 10px;
+            column-gap: 20px;
+            
+            /* flex-flow: row wrap; */
+            /* align-content: center; */
         }
 
         /* column:  <!--(y,x)--> */
@@ -28,14 +35,34 @@
 
         #contenedor1 {
             border: 2px solid red;
+            order:-5;
+            flex-shrink: 2;
+            align-self: flex-start;
         }
-
+        
         #contenedor2{
             border: 2px solid green;
+            order: 4;
         } 
         
         #contenedor3 { 
-            border: 2px solid blue; 
+            border: 2px solid rgb(28, 28, 216); 
+            order: 3;
+        }
+        
+        #contenedor4{
+            order: 2;
+            align-self: flex-start;
+            
+        }
+        #contenedor5{
+            order: -1;
+            
+        }
+        #contenedor6{
+            order: 6;
+            align-self: flex-start;
+
         }
 
     </style>
@@ -47,11 +74,11 @@
         <div id="contenedor2" class="primer-contenedor">Contenedor 2</div>
         <div id="contenedor3" class="primer-contenedor">Contenedor 3</div>
 
-        <!--
-            <div id="contenedor4" class="primer-contenedor">Contenedor 4</div>
-            <div id="contenedor5" class="primer-contenedor">Contenedor 5</div>
-            <div id="contenedor6" class="primer-contenedor">Contenedor 6</div>
-        -->
+        
+        <div id="contenedor4" class="primer-contenedor">Contenedor 4</div>
+        <div id="contenedor5" class="primer-contenedor">Contenedor 5</div>
+        <div id="contenedor6" class="primer-contenedor">Contenedor 6</div>
+    
     </main>
 </body>
 </html>
