@@ -88,15 +88,20 @@ function mostrarCarrito(){
 
     };
 
+    // #region pruebas
 
-function calcularTotal(array) {
-    let total = 0;
+    function calcularTotal(array) {
+        let total = 0;
+    
+        array.forEach(producto => {
+            total += producto.precio;
+        })
+        return total;
+    }
 
-    array.forEach(producto => {
-        total += producto.precio;
-    })
-    return total;
-}
+
+    // #endregion
+
 
 function mostrarListaLibros(array){
     let listadoLibros= "<ul class=lista> ";

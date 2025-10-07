@@ -20,21 +20,19 @@ Implementa una función init() que inicialice la aplicación mostrando todos los
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-        <link rel="stylesheet" href="css/syles.css"></head>
+        <link rel="stylesheet" href="css/styles.css"></head>
         <script src="js/main.js" defer></script>
         <title> Biblioteca </title>
     </head>
     <body>
         <!-- Estructuras semanticas-->
-        <header>
+        <header class="cabezera">
             <nav class="navegador">
-                <label for="barraBusqueda"> Buscar </label>
-                <input id="barraBusqueda"type="text">
-
-                <div class="carrito">
-                    <img class="carritoimg" src="img\carrito.png" alt="carrito">
-                </div>
+                <input id="barraBusqueda"type="text" placeholder="¿Qué esta buscando?">
             </nav>
+            <div class="carrito">
+                <img class="carritoimg" src="img\carrito.png" alt="carrito">
+            </div>
         </header>
         <main class = "principal">
             <section id="seccionlibros"></section>
