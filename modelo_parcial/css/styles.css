@@ -12,6 +12,7 @@
 
 body{
     margin: 0px;
+    background-color: rgb(251, 221, 177);
 }
 
 main{
@@ -29,8 +30,10 @@ main{
 }  
 
 #listaLibros{
-    width: 200px;
-    height: 300px;
+    width: 14.4vw;
+    height: 38vh;
+    /* width: 200px; */
+    /* height: 300px; */
     padding: 5px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     display: flex;
@@ -38,6 +41,7 @@ main{
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    background-color: rgb(251, 221, 177);
 }
 
 .imgLibro{
