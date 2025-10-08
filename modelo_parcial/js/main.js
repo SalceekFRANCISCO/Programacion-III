@@ -92,7 +92,18 @@ function ordenar2(){
 
 function ordenar3(){
     ordenarNombre.addEventListener("click", function(){
-        libros.sort((lib1,lib2)=> lib1.titulo > lib2.titulo);
+        libros.sort(function(lib1,lib2){
+            let x = lib1.titulo.toUpperCase();
+            let y = lib2.titulo.toUpperCase();
+            let resultado=0;
+            if (x < y){
+                resultado = -1;
+            }
+            if (x > y){
+                resultado = 1;
+            } 
+            return resultado;
+        });
         mostrarListaLibros(libros);
     });
 }
