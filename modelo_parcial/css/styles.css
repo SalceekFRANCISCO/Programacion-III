@@ -50,8 +50,14 @@ main{
     /* border: 4px green solid; */
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background-color: rgba(238, 196, 28, 0.625);
     
+}
+
+.botones{
+    display: flex;
+    gap: 10px;
 }
 
 .navegador{
@@ -74,6 +80,22 @@ main{
     width: 7vh;
 }
 
+ /* .lupa, .lupaimg{
+    border: 2px solid;
+} */
+
+.lupa{
+    padding-top: 0.1vh;
+    border-radius: 3px;
+    margin-left: 0px;
+
+}
+
+.lupaimg{
+    width: 1vw;
+    height: 2.5vh;
+}
+
 .autor{
     margin-bottom: 6px;
     margin-top: 13px;
@@ -83,7 +105,7 @@ main{
     border-radius: 3px;
     border-color: rgba(255, 255, 255, 0.535);
     height: 2.5vh;
-    width: 11.5vw;
+    width: 7.8vw;
 }
 
 /* Pseudoclases*/
@@ -97,7 +119,7 @@ main{
 
 .botonAgregar{
     border-radius: 4px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Play", sans-serif;;
     border-color: rgba(178, 151, 115, 0.129);
     background-color: rgba(20, 134, 239, 0.811);
     color: aliceblue;

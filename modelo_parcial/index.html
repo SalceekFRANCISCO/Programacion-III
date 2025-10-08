@@ -20,6 +20,9 @@ Implementa una función init() que inicialice la aplicación mostrando todos los
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css"></head>
         <script src="js/main.js" defer></script>
         <title> Biblioteca </title>
@@ -29,7 +32,17 @@ Implementa una función init() que inicialice la aplicación mostrando todos los
         <header class="cabezera">
             <nav class="navegador">
                 <input id="barraBusqueda"type="text" placeholder="¿Qué esta buscando?">
+                <div class="lupa">
+                    <label for="barraBusqueda">
+                        <img class="lupaimg" src="img/lupa-png.png" alt="lupa" for="#barraBusqueda"></img>
+                    </label>
+                </div>
             </nav>
+            <div class="botones">
+                <button id="ordenarMenorMayor">ordenarMenorMayor</button>
+                <button id="ordenarMayorMenor">ordenarMayorMenor</button>
+                <button id="ordenarNombre">ordenar por Nombre</button>
+            </div>
             <div class="carrito">
                 <img class="carritoimg" src="img\carrito.png" alt="carrito">
             </div>
@@ -39,7 +52,7 @@ Implementa una función init() que inicialice la aplicación mostrando todos los
             <div class = "separador"></div>
             <aside id="asidecarrito"></aside>
             <!-- <hr class="sos"> para dibujar lineas -->
-            <hr class="sos">
+            <!-- <hr class="sos"> -->
         </main>
     </body>
 </html>

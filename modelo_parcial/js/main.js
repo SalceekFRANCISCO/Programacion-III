@@ -21,6 +21,12 @@ let botonBuscar = document.querySelector("#barraBusqueda");
 
 let carrito = document.querySelector("#asidecarrito");
 
+let botonMenorAMayor = document.querySelector("#ordenarMenorMayor");
+
+let botonMayorAMenor = document.querySelector("#ordenarMayorMenor");
+
+let ordenarNombre = document.querySelector("#ordenarNombre");
+
 //array de botones
 const libros = [
     {id: 1, titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', precio: 8500, ruta_img: 'img/cien_anos_de_soledad.jpg'},
@@ -70,38 +76,73 @@ const libros = [
 let favoritos = [];
 let listadoLibros= "";
 
-function mostrarCarrito(){
-    // carrito.addEventListener("click", function(){
-    let total = calcularTotal(favoritos);
-    let carritoCargado = "<ul class=listaCarrito> ";
-    favoritos.forEach(libfav => {
-            carritoCargado +=
-            `<li>
-                <p>${libfav.titulo}-- $${libfav.precio}</p>
-            </li>`
+function ordenar(){
+    botonMenorAMayor.addEventListener("click", function(){
+        libros.sort((lib1,lib2)=> lib1.precio - lib2.precio);
+        mostrarListaLibros(libros);
     });
+}
 
-    carritoCargado += `<h3>Total de carrito: $ ${total}</p> </h3>`;
-    carrito.innerHTML = carritoCargado;
-    console.log("me ejecute");
-    
+function ordenar2(){
+    botonMayorAMenor.addEventListener("click", function(){
+        libros.sort((lib1,lib2)=> lib2.precio - lib1.precio);
+        mostrarListaLibros(libros);
+    });
+}
 
-    };
+function ordenar3(){
+    ordenarNombre.addEventListener("click", function(){
+        libros.sort((lib1,lib2)=> lib1.titulo > lib2.titulo);
+        mostrarListaLibros(libros);
+    });
+}
 
-    // #region pruebas
+function mostrarCarrito(){
+    let cantidadCarrito = favoritos.length;
 
-    function calcularTotal(array) {
-        let total = 0;
-    
-        array.forEach(producto => {
-            total += producto.precio;
-        })
-        return total;
+    if(cantidadCarrito === 0){
+        vaciarCarrito();
     }
+    else{
+        let total = calcularTotal(favoritos);
+        let carritoCargado = "<ul class=listaCarrito> ";
+        favoritos.forEach((libfav,indice) => {
+                carritoCargado +=
+                `<li>
+                    <p>${libfav.titulo}-- $${libfav.precio}</p>
+                    <button class="botonEliminar" onclick="eliminarLibro(${(indice)})">Eliminar</button>
+                </li>`
+        });
 
+        carritoCargado += `<h3>Total de carrito: $ ${total}</p> </h3>`;
+        carritoCargado += `<p> Productos:  ${cantidadCarrito} </p>`;
+        carrito.innerHTML = carritoCargado;
+    }
+    
+};
 
-    // #endregion
+function vaciarCarrito(){
+    favoritos = [];
+    
+    carrito.innerHTML = favoritos;
 
+}
+
+function eliminarLibro(indice){
+    favoritos.splice(indice,1);
+
+    mostrarCarrito();
+    
+}
+
+function calcularTotal(array) {
+    let total = 0;
+
+    array.forEach(producto => {
+        total += producto.precio;
+    })
+    return total;
+}
 
 function mostrarListaLibros(array){
     let listadoLibros= "<ul class=lista> ";
@@ -138,11 +179,11 @@ function validarExistencia(libro){
     let existe = favoritos.some(lib => lib.id == libro.id);
 
     if(existe){
-        alert("el libro ya se encuentra en la lista");
+        // alert("el libro ya se encuentra en la lista");
     }
     else{
         favoritos.push(libro);
-        alert("libro agregado correctamente");
+        // alert("libro agregado correctamente");
         console.log(libro);
     }
 }
@@ -156,6 +197,9 @@ function agregarLibro(id){
 function init(){
     mostrarListaLibros(libros); 
     buscar();
+    ordenar();
+    ordenar2();
+    ordenar3();
 }
 
 init();
