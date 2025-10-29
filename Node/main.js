@@ -75,7 +75,7 @@ const rutaOtroArchivo = path.join(__dirname, "archivos", "otroArchivo.txt");
 console.log(`La ruta de mi otro archivo es: ${rutaOtroArchivo}`); // /home/xabier/Escritorio/Docencia/2025/UTN Cuatri 2/UTN25Cuatri2_132/3_nodejs/archivos/otroArchivo.txt
 
 // basename nos permite obtener el nombre de un fichero a partir de su ruta
-const nombreArchivoTexto = path.basename(rutaArchivoTexto);
+const nombreArchivoTexto = path.basename(rutaArchivoTexto); 
 const nombreOtroArchivo = path.basename((rutaOtroArchivo));
 
 console.log(`Mis dos archivos se llaman: ${nombreArchivoTexto} y ${nombreOtroArchivo}`);
