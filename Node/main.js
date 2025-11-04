@@ -98,3 +98,12 @@ console.log(os.cpus());
 
 
 // TO DO, exportar e importar un modulo externo y ya pasar al modulo http nativo de Node.js
+
+
+/*===========================================
+    Exportacion e importacion de modulos
+===========================================*/
+
+const saludar = require("./saludar");
+
+console.log(saludar("Miguel"));
