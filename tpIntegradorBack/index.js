@@ -1,8 +1,7 @@
 import express from "express";
 const app = express();
 
-import enviroments from "./src/api/config/environment.js";
-
+import enviroments from "./src/api/config/environments.js";
 const PORT = enviroments.port;
 
 app.get("/",(req,res) => {
