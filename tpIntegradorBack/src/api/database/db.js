@@ -5,7 +5,7 @@ import enviroments from "../config/environments.js"
 const {database} = enviroments;
 
 
-const connection = mysql.createPool({
+const connection = mysql2.createPool({
     host: database.host,
     database: database.name,
     user: database.user,
