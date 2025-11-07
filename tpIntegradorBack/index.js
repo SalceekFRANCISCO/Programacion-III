@@ -99,9 +99,29 @@ app.get("/products/:id", async(req,res) =>{
 
 
 // Post -> crear Productos
-app.post("/productos", async(req, res)=>{
+// app.post("/productos", async(req, res)=>{
+//     try{
 
-});
+//         let {name, image, category, price} = req.body;
+//         console.log(req.body);
+        
+//         let sql = INSERT INTO PRODUCTOS {(name, iamge, category, price) VALUES(?,?,?,?)}
+
+//         let [rows] = wait connection.query(sql, [name, image, category, price]);
+//         console.log(rows);
+
+//         res.status(201)
+        
+
+//     } catch(error){
+//         console.log("Error al crear Producto: ",error.message);
+        
+//         res.status(500).json({
+//             message: "Error interno del servidor",
+//             error: error.message
+//         })
+//     }
+// });
 
 
 app.listen(PORT, () => {
