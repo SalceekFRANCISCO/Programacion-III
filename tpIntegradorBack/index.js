@@ -40,7 +40,8 @@ app.get("/products", async (req, res) => {
         const [rows, fields] = await connection.query(sql);
 
         res.status(200).json({
-            payload: rows
+            payload: rows,
+            message: "productos encontrados"
         });
 
         /* El término "payload" en el contexto de bases de datos se refiere 
