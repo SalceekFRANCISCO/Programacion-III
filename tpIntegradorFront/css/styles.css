@@ -82,6 +82,16 @@ nav ul {
     align-items: center;
 }
 
-#getProduct-form {
+#getProducts-form {
+    width: 25%;
     margin-bottom: 20px;
+}
+
+.productos-form {
+    width: 35%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 110px;
+    justify-content: space-between;
 }

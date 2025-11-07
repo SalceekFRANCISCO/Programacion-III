@@ -15,6 +15,12 @@ import cors from "cors"; // Importamos cors para poder usar sus metodos y permit
 ===================*/
 app.use(cors()); // Middleware basico que permite todas las solicitudes
 
+app.use((req,res,next)=>{
+    console.log("Hola holiita veciinito, que... mesnaje");
+    {req.url}
+
+    next();
+})
 /* Que es CORS?
 CORS, o Intercambio de Recursos de Origen Cruzado, es un mecanismo de seguridad implementado por los navegadores web que permite a una página web 
 solicitar recursos desde un dominio diferente al del origen actual  Este mecanismo se activa cuando una solicitud HTTP se realiza a un recurso 
@@ -23,6 +29,7 @@ como el secuestro de sesión o el acceso no autorizado a datos sensibles  CORS f
 como `Access-Control-Allow-Origin`, que el servidor debe incluir en su respuesta para indicar si está autorizado el acceso desde un origen determinado  
 Sin este permiso explícito, el navegador bloquea la solicitud para mantener la seguridad de la política del mismo origen*/
 
+app.use(express.json());
 
 /*===================
     Endpoints
@@ -57,6 +64,44 @@ app.get("/products", async (req, res) => {
     }
 });
 
+
+
+// get product by id -> consultar por id
+app.get("/products/:id", async(req,res) =>{
+    // en el parametro tenemos los objetos rquest (req) y response
+    try{
+        // extraemos el valor id de la /productos/2
+        // extraemos el valor id de la /productos/2
+        let { id }= req.params;
+
+        // ? son placeholders
+        let sql = "SELECT * FROM products WHERE products.id = ?"
+
+        const [rows] = await connection.query(sql, [id]);
+
+        console.log(rows);
+
+        res.status(200).json({
+            payload: rows
+        });
+        
+    }
+    catch(error){
+        console.log("error obteniendo producto por id: ",error);
+
+        res.status(500).json({
+            message: "Error interno del servidor",
+            error: error.message
+        })
+        
+    }
+})
+
+
+// Post -> crear Productos
+app.post("/productos", async(req, res)=>{
+
+});
 
 
 app.listen(PORT, () => {
