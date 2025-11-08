@@ -39,9 +39,9 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/products", async (req, res) => {
+app.get("/productos", async (req, res) => {
     try {
-        const sql = "SELECT * FROM products";
+        const sql = "SELECT * FROM productos";
 
         // la conexion devuelve dos campos, rows con el resultado de la consulta, fields la informacion de la tabla products
         const [rows, fields] = await connection.query(sql);
@@ -97,7 +97,7 @@ app.get("/products/:id", async(req,res) =>{
     }
 })
 
-
+// nacho es una persona xd
 // Post -> crear Productos
 // app.post("/productos", async(req, res)=>{
 //     try{
