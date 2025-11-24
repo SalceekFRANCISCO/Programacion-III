@@ -1,6 +1,8 @@
 import connection from "../database/db.js";
 
 
+import ProductModel from "../models/products.models.js";
+
 // GET all products -> Traer todos los productos
 export const getAllProducts = async (req, res) => {
     try {
@@ -9,10 +11,8 @@ export const getAllProducts = async (req, res) => {
         - Devolver solo las columnas que necesita el front
         - < datos transferidos, < carga de red, > seguridad
         */
-        const sql = "SELECT * FROM products";
-
         // la conexion devuelve dos campos, rows con el resultado de la consulta, fields la informacion de la tabla products
-        const [rows, fields] = await connection.query(sql);
+        const [rows, fields] = await ProductModel.selectAllProducts();
 
         // Tipo de respuesta en JSON
         res.status(200).json({
@@ -43,13 +43,8 @@ export const getProductById = async (req, res) => {
         // Extraemos el valor id de la url
         // let id = req.params.id; // extraemos el 2 de /products/2
         let { id } = req.params;
-        
 
-        // Optimizacion 2: Limitar los resultados de la consulta: Evita el escaneo completo de la tabla
-        //let sql = "SELECT * FROM products WHERE products.id = ? LIMIT 1";
-        let sql = "SELECT * FROM productos WHERE productos.id = ?"; // ? son placeholders
-
-        const [rows] = await connection.query(sql, [id]);
+        const [rows] = await  ProductModel.selectProductById(id);
         // console.log(rows);
 
         // Optimizacion 3: Comprobamos que exista el producto con ese id
@@ -97,10 +92,8 @@ export const createProduct =  async (req, res) => {
         }
 
 
-        let sql = "INSERT INTO products (name, image, category, price) VALUES (?, ?, ?, ?)";
-
-        let [rows] = await connection.query(sql, [name, image, category, price]);
-        console.log(rows);
+        // let [rows] = await connection.query(sql, [name, image, category, price]);
+        let [rows] = await ProductModel.insertProduct(name, image, category, price);
 
         // Devolvemos una repuesta con codigo 201 Created
         res.status(201).json({
@@ -141,13 +134,13 @@ export const modifyProduct = async (req, res) => {
         }
 
 
-        let sql = `
-            UPDATE products
-            SET name = ?, image = ?, category = ?, price = ?, active = ?
-            WHERE id = ?
-        `;
+        // let sql = `
+        //     UPDATE products
+        //     SET name = ?, image = ?, category = ?, price = ?, active = ?
+        //     WHERE id = ?
+        // `;
 
-        let [result] = await connection.query(sql, [name, image, category, price, active, id]); // Estos valores en orden reemplazan a los placeholders -> ?
+        let [result] = await ProductModel.updateProduct(name, image, category, price, active, id); // Estos valores en orden reemplazan a los placeholders -> ?
 
         console.log(result);
 
@@ -176,7 +169,7 @@ export const modifyProduct = async (req, res) => {
 };
 
 // DELETE-> Eliminar producto
-export const deleteProduct = async (req, res) => {
+export const removeProduct = async (req, res) => {
     try {
         let { id } = req.params;
 
@@ -184,9 +177,10 @@ export const deleteProduct = async (req, res) => {
         let sql = `DELETE FROM products WHERE id = ?`;
 
         // Opcion 2: Baja logica
-        let sql2 = `UPDATE products set active = 0 WHERE id = ?`;
+        // let sql2 = `UPDATE products set active = 0 WHERE id = ?`;
 
-        let [result] = await connection.query(sql, [id]);
+        // let [result] = await connection.query(sql, [id]);
+        let [result] = await ProductModel.deleteProduct(id);
         console.log(result);
 
         // Comprobamos si realmente se elimino un producto
