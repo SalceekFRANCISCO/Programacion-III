@@ -58,15 +58,23 @@ app.get("/index", (req, res)=>{
     res.render("index");
 });
 
-
 app.get("/consultar", (req, res) => {
     res.render("consultar");
 
 });
 
-
 app.get("/crear", (req, res) => {
     res.render("crear");
+
+});
+
+app.get("/modificar", (req, res) => {
+    res.render("modificar");
+
+});
+
+app.get("/eliminar", (req, res) => {
+    res.render("eliminar");
 
 });
 
