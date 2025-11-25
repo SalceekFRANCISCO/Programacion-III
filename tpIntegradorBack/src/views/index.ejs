@@ -5,7 +5,18 @@
 <main>
     <h1> <%= about %> </h1>
     <hr>
-    <div id="contenedor-productos"></div>
+    <div id="contenedor-productos">
+        <!-- iterar el array de productos que le pasamos desde el endpoint-->
+        <% products.forEach(prod => { %>
+            <div class="card-producto">
+                <img src="<%=prod.image%>" alt="<%=prod.name%>">
+                <h5><%=producto.nombre%></h5>
+                <p>Id: <%=producto.id%></p>
+                <p>$<%=producto.precio%></p>
+            </div>
+        <% }) %>
+        
+    </div>
 </main>
 
 <script src="js/index.js"></script>
