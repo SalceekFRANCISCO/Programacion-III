@@ -9,7 +9,11 @@ const PORT = environments.port;
 
 import connection from "./src/api/database/db.js";
 import cors from "cors"; // Importamos cors para poder usar sus metodos y permitir solicitudes de otras aplicaciones
+import { loggerUrl } from "./src/api/middlewares/middlewares.js";
 
+import { productRoutes } from "./src/api/routes/index.js";
+
+import { join, _dirname } from "./src/api/utils/index.js";
 /*===================
     Middlewares
 ===================*/
@@ -31,12 +35,32 @@ Sin este permiso explícito, el navegador bloquea la solicitud para mantener la 
 
 app.use(express.json());
 
+app.use(loggerUrl);
+
+app.use(express.static(__dirname, "src", "public"));
+
+app.use(express.static(join(__dirname, "src", "public")));
+
+app.set("view engine", "ejs");
+app.set("views", join(_dirname, "src", "views"));
+
+
+
 /*===================
     Endpoints
 ===================*/
 app.get("/", (req, res) => {
     res.send("TP Integrador Div 132");
 });
+
+// devolvemos vistas
+app.get("/index", (req, res)=>{
+    res.render("index");
+});
+
+
+app.get("/consultar" )
+
 
 
 app.get("/productos", async (req, res) => {
