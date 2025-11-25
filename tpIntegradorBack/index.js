@@ -14,6 +14,8 @@ import { loggerUrl } from "./src/api/middlewares/middlewares.js";
 import { productRoutes } from "./src/api/routes/index.js";
 
 import { join, _dirname } from "./src/api/utils/index.js";
+import connection from "./src/api/database/db.js";
+
 /*===================
     Middlewares
 ===================*/
@@ -54,28 +56,53 @@ app.get("/", (req, res) => {
 });
 
 // devolvemos vistas
-app.get("/index", (req, res)=>{
-    res.render("index");
+app.get("/index", async (req, res) =>{
+    try{
+        const [rows] = await connection.query("SELECT * FROM products")
+        console.log(rows);
+        res.render("index", {
+            title: "Indice",
+            about: "Lista de productos",
+            products: rows
+        });
+        
+
+    }catch(error){
+        console.log(error.message);
+        
+    }
 });
 
 app.get("/consultar", (req, res) => {
-    res.render("consultar");
-
+    res.render("consultar", {
+            title: "Consultar",
+            about: "Consultar producto por id:",
+            products: rows
+        });
 });
 
 app.get("/crear", (req, res) => {
-    res.render("crear");
-
+    res.render("crear", {
+            title: "Crear",
+            about: "Crear Producto",
+            products: rows
+        });
 });
 
 app.get("/modificar", (req, res) => {
-    res.render("modificar");
-
+    res.render("modificar", {
+            title: "Actualizar",
+            about: "Actualizar Producto",
+            products: rows
+        });
 });
 
 app.get("/eliminar", (req, res) => {
-    res.render("eliminar");
-
+    res.render("eliminar", {
+            title: "Eliminar",
+            about: "Eliminar Producto",
+            products: rows
+        });
 });
 
 
