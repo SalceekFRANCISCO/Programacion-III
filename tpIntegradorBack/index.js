@@ -59,7 +59,19 @@ app.get("/index", (req, res)=>{
 });
 
 
-app.get("/consultar" )
+app.get("/consultar", (req, res) => {
+    res.render("consultar");
+
+});
+
+
+app.get("/crear", (req, res) => {
+    res.render("crear");
+
+});
+
+
+
 
 
 
