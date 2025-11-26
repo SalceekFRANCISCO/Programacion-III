@@ -195,6 +195,11 @@ app.get("/products/:id", async(req,res) =>{
 // });
 
 
+// Ahora las rutas las gestiona el middleware Router
+app.use("/api/products", productRoutes);
+
+
+
 app.listen(PORT, () => {
     console.log(`Servidor corriendo desde el puerto ${PORT}`)
 });

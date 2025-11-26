@@ -13,7 +13,6 @@ router.get("/", getAllProducts);
 // GET product by id -> Consultar producto por id
 router.get("/:id", validateId , getProductById)
 
-
 // POST -> Crear nuevo producto
 router.post("/", createProduct);
 
